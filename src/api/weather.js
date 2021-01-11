@@ -2,13 +2,12 @@ import request from '@/helpers/request'
 import config from '@/helpers/config'
 
 const endpoints = {
-    myCity: 'https://geolocation-db.com/json/',
     openweathermap: `${config.openweatherURL}/data/2.5/weather`,
 }
 
 async function getMyCity() {
     return request({
-        url: endpoints.myCity,
+        url: config.geolocationDB,
         method: 'get',
     })
 }

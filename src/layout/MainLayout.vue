@@ -1,7 +1,12 @@
 <template>
   <div class="wrapper">
+    <Header />
+    <input
+      v-model="city"
+      placeholder="Введите название города..."
+      @keyup.enter="showWeather"
+    />
     <info-weather :result="result" />
-    <form-weather @get-weather="showWeather" />
   </div>
 </template>
 
@@ -10,8 +15,8 @@
 import { getMyCity, getWeather } from '@/api/weather'
 
 // components
-import InfoWeather from "@/components/InfoWeather"
-import FormWeather from "@/components/FormWeather"
+import Header from '@/components/Header'
+import InfoWeather from '@/components/InfoWeather'
 
 export default {
   name: "MainLayout",
@@ -20,8 +25,8 @@ export default {
     result: {},
   }),
   components: {
+    Header,
     InfoWeather,
-    FormWeather
   },
   created() {
     this.getCity()
@@ -32,18 +37,18 @@ export default {
         .then(res => {
           console.log(res.data.city)
           this.city = res.data.city
-          this.showWeather(this.city)
+          this.showWeather()
         })
         .catch(e => {
           console.error(e)
         })
     },
-    showWeather(city) {
-      getWeather(city)
+    showWeather() {
+      getWeather(this.city)
         .then(res => {
           this.result = res.data
 
-          new Notification(`Ваш запрос по городу ${city}`).show()
+          new Notification(`🌤 Погода по городу ${this.city}`).show()
         })
         .catch(e => {
           console.error(e)

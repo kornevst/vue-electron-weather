@@ -6,4 +6,34 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     line-height: auto;
+    user-select: none;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgb(144, 74, 190) 0%, rgb(255, 79, 79) 50%, rgb(248, 184, 95) 100%);
+    color: #fff;
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    outline: none;
+    font-size: 35px;
+    padding: 5px;
+
+    &:focus {
+        border-bottom: 2px solid #6d6dff;
+    }
+    &::placeholder {
+        color: #ffdbdb;
+        font-size: 20px;
+    }
 }

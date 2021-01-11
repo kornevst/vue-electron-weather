@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -13,18 +13,39 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    title: 'Погодное приложение',
+    width: 550,
+    height: 400,
     // Пункты меню сверху
     autoHideMenuBar: true,
     // Фрейм (кнопки закрыть)
-    frame: true,
+    frame: false,
+    resizable: false,
+    setmovable: true,
+    icon: './public/favicon.ico',
+    transparent: false,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
     }
   })
+
+  win.center()
+  // win.setTitle('Загружаю погоду в вашем городе...')
+
+
+  // Прослушивание кастомных кнопок (закрыть, свернуть)
+  ipcMain.on('min', e=> win.minimize());
+  ipcMain.on('max', e=> {
+    if (win.isMaximized()) {
+      win.unmaximize()
+    } else {
+      win.maximize()
+    }
+  });
+  ipcMain.on('close', e=> win.close());
+
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
