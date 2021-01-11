@@ -1,24 +1,27 @@
-# vue-electron-app
+# ☔ Погодное приложение vue + electron
 
-## Project setup
-```
+## ☔🌤
+
+### Устанавливаем пакеты
+
+```sh
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
+### Запуск для разработки
+
+```sh
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+### Запуск для разработки в electron
+
+```sh
+yarn electron:serve
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+### Билд в Windows приложение (.exe)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```sh
+yarn electron:build
+```
