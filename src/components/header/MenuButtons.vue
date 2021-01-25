@@ -1,17 +1,17 @@
 <template>
 <div class="title">
-    <div
+    <button
         class="button button__min"
         @click="click('min')"
     >
         <min-icon class="button__icon" />
-    </div>
-    <div
+    </button>
+    <button
         class="button button__close"
         @click="click('close')"
     >
         <close-icon class="button__icon" />
-    </div>
+    </button>
 </div>
 </template>
 
@@ -58,10 +58,13 @@
     -webkit-app-region: no-drag;
     display: flex;
     align-items: center;
+    background: transparent;
+    border: none;
+    outline: none;
 
     &__icon {
-        width: 25px;
-        height: 25px;
+        width: 15px;
+        height: 15px;
         fill: #fff;
     }
 
@@ -78,6 +81,11 @@
         .button__icon {
             fill: #dbdbdb;
         }
+    }
+
+    &:active {
+        background: transparent;
+        border: none;
     }
 }
 </style>

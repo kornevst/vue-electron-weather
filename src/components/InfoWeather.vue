@@ -2,7 +2,7 @@
   <div class="info">
     <ul class="info__list" v-if="result">
       <li>Местоположение: {{ result.name }}, {{ result.sys.country }}</li>
-      <li>Температура: {{ result.main.temp }}</li>
+      <li>Температура: {{ result.main.temp }}°С</li>
       <li>Восход солнца: {{ getTimeInMillisecond(result.sys.sunrise) }}</li>
       <li>Заход солнца: {{ getTimeInMillisecond(result.sys.sunset) }}</li>
     </ul>
