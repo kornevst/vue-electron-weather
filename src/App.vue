@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <title-buttons />
+    <menu-buttons />
     <main-layout />
   </div>
 </template>
 
 <script>
-import TitleButtons from '@/components/TitleButtons'
+import MenuButtons from '@/components/header/MenuButtons'
 import MainLayout from "@/layout/MainLayout"
 
 export default {
   name: "app",
   components: {
-    TitleButtons,
+    MenuButtons,
     MainLayout
   }
 }

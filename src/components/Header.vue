@@ -13,7 +13,7 @@ export default {
 
 <style scoped lang="scss">
 .header {
-    margin: 10px;
+  margin: 10px;
 
   &__icon {
     font-size: 60px;

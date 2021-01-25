@@ -1,10 +1,10 @@
 <template>
   <div class="info">
     <ul class="info__list" v-if="result">
-        <li>Местоположение: {{ result.name }}, {{ result.sys.country }}</li>
-        <li>Температура: {{ result.main.temp }}</li>
-        <li>Восход солнца: {{ getTimeInMillisecond(result.sys.sunrise) }}</li>
-        <li>Заход солнца: {{ getTimeInMillisecond(result.sys.sunset) }}</li>
+      <li>Местоположение: {{ result.name }}, {{ result.sys.country }}</li>
+      <li>Температура: {{ result.main.temp }}</li>
+      <li>Восход солнца: {{ getTimeInMillisecond(result.sys.sunrise) }}</li>
+      <li>Заход солнца: {{ getTimeInMillisecond(result.sys.sunset) }}</li>
     </ul>
     <p v-else class="info__description">Узнайте погоду в вашем городе</p>
   </div>
