@@ -1,12 +1,12 @@
 <template>
     <div
         class="titlebtn"
-        v-bind:style="style"
-        v-on:click="click"/>
+        :style="style"
+        @click="click"/>
 </template>
 
 <script>
-    const { ipcRenderer } = require('electron')
+    import { ipcRenderer } from "electron"
 
     const style = {
         min: {
@@ -29,6 +29,7 @@
         },
         methods: {
             click() {
+                console.log('Click')
                 ipcRenderer.send(this.type);
             }
         }

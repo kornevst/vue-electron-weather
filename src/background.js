@@ -1,6 +1,7 @@
 'use strict'
 
 import { app, protocol, BrowserWindow, ipcMain } from 'electron'
+// import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -17,12 +18,12 @@ async function createWindow() {
     width: 550,
     height: 400,
     // Пункты меню сверху
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     // Фрейм (кнопки закрыть)
     frame: false,
-    resizable: false,
+    resizable: true,
+    // resizable: false,
     setmovable: true,
-    icon: './public/favicon.ico',
     transparent: false,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
@@ -32,7 +33,7 @@ async function createWindow() {
   })
 
   win.center()
-  // win.setTitle('Загружаю погоду в вашем городе...')
+  win.setTitle('Загружаю погоду в вашем городе...')
 
 
   // Прослушивание кастомных кнопок (закрыть, свернуть)
